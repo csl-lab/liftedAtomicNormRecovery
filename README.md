@@ -1,17 +1,8 @@
 # Lifted Atomic Norm Recovery
 
-Signal recovery methods from incomplete linear measurements often make assumptions about the structure of the underlying signal. For instance, it is often assumed that the underlying signal is a sparse combination of elementary signals called *atoms*. If we let $\mathcal{A} := \{\boldsymbol{a}_1, \ldots, \boldsymbol{a}_n\}$ be an *atomic set* in $\mathbb{R}^d$ then a measure of complexity of a signal $\boldsymbol{x}_0 \in \mathbb{R}^d$ is the value of its *atomic norm*
-$$
-    \rho_{\mathcal{A}}(\boldsymbol{x}_0) = \inf\left\{\sum_{i=1}^{n} c_i:\,\, \boldsymbol{x}_0 = \sum_{i=1}^{n} c_i\boldsymbol{a}_i,\,\,c_i\geq 0\right\}.
-$$
-If the incomplete linear measurements are given by $\boldsymbol{y}_0 = \boldsymbol{\Phi}\boldsymbol{x}_0$ for some $m\times d$ matrix $\boldsymbol{\Phi}$, where typically $m \ll d$, then *atomic norm recovery* consists on solving
-$$
-    \text{minimize}_{\boldsymbol{x}\in\mathbb{R}^d} \quad \rho_{\mathcal{A}}{\boldsymbol{x}} \quad \text{subject to} \quad \boldsymbol{\Phi}\boldsymbol{x} = \boldsymbol{y}_0.
-$$
+Atomic norm minimization is a popular approach to perform signal recovery from incomplete linear measurements when the underlying signal is a sparse combination of elementary building blocks called *atoms*. However, there is an *implicit* geometric constraint in this strategy, namely, not all atoms are used to represent the recovered signal. In fact, only the *exposed atoms* will be selected to represent the optimal solution, while the *masked atoms* will never be selected. These masked atoms may as well never have been included in the signal model. 
 
-However, there is an *implicit* geometric constraint, namely, not all atoms in $\mathcal{A}$ are used to represent the optimal solution $\boldsymbol{x}^{\star}$ to the above problem. In fact, only the *exposed atoms* will be selected to represent the optimal solution, while the *masked atoms* will never be selected. In fact, they may as well never have been included in the signal model. 
-
-This repository contains the implementation of an alternative approach, called *lifted atomic norm recovery*, that enables the selection of masked atoms to represent the recovered signal.
+This repository contains the implementation of an alternative approach to atomic norm minimization, called *lifted atomic norm recovery*, that enables the selection of masked atoms to represent the recovered signal.
 
 Version 1.0
 
